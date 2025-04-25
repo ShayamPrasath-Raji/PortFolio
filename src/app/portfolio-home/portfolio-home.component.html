@@ -1,0 +1,78 @@
+<div class="mainBody" *ngIf="!isMobileCompatibleScreen()">
+    <div class="headerContent">
+        <div class="logoHeader">
+            <img src="assets/images/rsp_logo.png" alt="Logo" class="logo" />
+        </div>
+        <div class="bodyHeader">
+            <div class="header">
+                <div class="headerTitle" (click)="navigateTo('home', '')" [class.active]="activeLink === 'home'">Home</div>
+                <div class="headerTitle" (click)="navigateTo('intro', '')" [class.active]="activeLink === 'intro'">Intro</div>
+                <div class="headerTitle" (click)="navigateTo('journey', '')" [class.active]="activeLink === 'journey'">Journey</div>
+                <div class="headerTitle" (click)="navigateTo('projects', '')" [class.active]="activeLink === 'projects'">Projects</div>
+                <div class="headerTitle" (click)="navigateTo('contact', '')" [class.active]="activeLink === 'contact'">Contact</div>
+            </div>
+        </div>
+    </div>
+    <div class="bodyContent">
+        <div class="content-1" id="home" #home>
+            <div class="image-div">
+                <div class="content">
+                    <span class="greeting">HELLO, I'M</span><br /><br />
+                    <span class="name">Shayam Prasath Raji</span><br /><br />
+                    <span class="description fade-text" [ngClass]="{ 'fade-out': isFading }">{{ description }}</span>
+                </div>
+                <img src="assets/images/mainBg.png" style="margin-top: -174px; height: 100%; width: 100%;" alt="Portfolio Home" class="homeImage" />
+                <div class="overlay"></div>
+                
+            </div>
+            <div class="profDetails">
+                <div class="details">
+                    <div class="thmbnail">
+                        <img src="assets/images/thumbnail.jpg" width="251.81" height="335.75" alt="Profile Thumbnail" class="thumbnail-img" />
+                        <div class="info">
+                            <span class="name">Shayam Prasath Raji</span><br />
+                            <span class="designation">Fullstack Developer</span><br />
+                            <div class="social">
+                                <a href="https://www.linkedin.com/in/shayamprasath-raji/" target="_blank">
+                                    <img src="assets/images/linkedin.avif" alt="linkedin" class="icon linkedin" />
+                                </a>
+                                <a href="https://www.instagram.com/" target="_blank">
+                                    <img src="assets/images/instagram.avif" alt="instagram" class="icon instagram" />
+                                </a>
+                            </div><br />
+                            <!-- <a href="assets/documents/SHAYAM_PRASATH_R-Resume.pdf" download="SHAYAM_PRASATH_R-Resume.pdf">
+                                <i class="fa fa-download"><button class="download-cv name">Download CV</button></i>
+                            </a><br /> -->
+                            <button class="download-cv name" (click)="downloadBtn()">Download CV</button><br />
+                            <span class="name who">Know more</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-2" id="intro" #intro>
+            <div class="det" style="background-color: #fff;"></div>
+        </div>
+
+        <div class="content-3" id="journey" #journey>
+            <div class="det" style="background-color: #57d7b7;"></div>
+        </div>
+
+        <div class="content-4" id="projects" #projects>
+            <div class="det" style="background-color: #fff;"></div>
+        </div>
+
+        <div class="content-5" id="contact" #contact>
+            <div class="det" style="background-color: #57d7b7;"></div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isMobileCompatibleScreen() && !isMobileCompatibleScreenPhone()">
+    <span>Tab responsive design is in progress. Requesting you to use desktop site.</span>
+</div>
+
+<div *ngIf="isMobileCompatibleScreenPhone()">
+    <span>Mobile responsive design is in progress. Requesting you to use desktop site.</span>
+</div>
